@@ -36,7 +36,8 @@ app.use( express.json() );
     -> Todo lo que se exporta se habilita en la ruta /api/auth
     -> Esto crea la ruta, como lo hace Routes en React
 */
-app.use( '/api/auth', require('./routes/auth') );
+app.use( '/api/auth', require('./routes/auth'));
+app.use( '/api/events', require('./routes/events'));
 
 
 /*
