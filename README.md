@@ -11,7 +11,7 @@ npm install
 
 ```
 
-### Para reconstruir ejecutar en modo desarrollo
+### Para ejecutar en modo desarrollo
 
 ```
 
