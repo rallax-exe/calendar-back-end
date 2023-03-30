@@ -3,6 +3,10 @@ require('dotenv').config();
 const cors = require('cors');
 const { dbConnection } = require('./database/config');
 
+//Importacion para solucion de rutas en Netlify, quitar para Heroku
+const path = require('path');
+
+
 /*
     - Crear el servidor de express -
 */
@@ -40,14 +44,29 @@ app.use( '/api/auth', require('./routes/auth'));
 app.use( '/api/events', require('./routes/events'));
 
 
+
+
 /*
     Para evitar problemas con las rutas en frontend
     se regresa el archivo index de
     la carpeta publica
 */
+
+//SOLUCION PARA NETLYFY
+    app.use(express.static(path.join(__dirname, 'public')));
+ 
+    app.get('/*', function(req,res) {
+            res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    });
+
+/*
+
+//SOLUCION PARA HEROKU
 app.get('*', (req, res) => {
     res.sendFile(__dirname+ '/public/index.html');
 });
+*/
+
 
 /*
     - Escuchar peticiones -
