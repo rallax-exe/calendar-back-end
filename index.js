@@ -41,6 +41,15 @@ app.use( '/api/events', require('./routes/events'));
 
 
 /*
+    Para evitar problemas con las rutas en frontend
+    se regresa el archivo index de
+    la carpeta publica
+*/
+app.get('*', (req, res) => {
+    res.sendFile(__dirname+ '/public/index.html');
+});
+
+/*
     - Escuchar peticiones -
     El callback se ejecuta cuando se inicia la app
 */

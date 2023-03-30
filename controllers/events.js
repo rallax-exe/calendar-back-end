@@ -168,7 +168,7 @@ const eliminarEvento = async(req, res = response) => {
         //En db pide que id se elimina
         await Evento.findByIdAndDelete( eventoId );
 
-        res.status(500).json({
+        res.json({
             ok: true,
             msg: 'El evento ha sido eliminado'
         });
